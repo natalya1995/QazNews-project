@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="page-block">
+    <div class="container">
+        <div class="page-block__item">
+            <h1 class="title">Найти новость</h1>
+            <form action="{% url 'search_results_page' %}" method="GET" class="search-data">
+                <input type="text" name="q" placeholder="Описание, ключевые слова ..." required>
+                <button class="search-button"><img src="{% static 'images/Frame.svg' %}" alt="Search">Найти</button>
+            </form>
+            <h2 class="title">Теги</h2>
+            <div class="tags-list">
+                {% for tag in tags %}
+                    <a href="{% url 'tags_news_page' tag.slug %}" class="tag-list__item">{{ tag.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
