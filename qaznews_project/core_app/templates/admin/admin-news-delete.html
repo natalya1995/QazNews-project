@@ -1,0 +1,21 @@
+{%extends '../base.html'%}
+{% load static %} 
+{% block title %}Удалить пост{% endblock %}
+
+{%block content%}
+{%if user.is_superuser%}
+<section class="page-block"> 
+    <div class="container"> 
+        <h1 class="title mb-30">Удалить пост</h1> 
+        <p class="help-text w-600 w-60">Вы подтверждаете удаление поста “{{post.title}}”? После удаления данные невозможно будет восстановить</p> 
+        <form class="crud-form" method="post" > 
+            {%csrf_token%}
+            <button class="action delete">Да</button> 
+            <a href="{%url 'admin_news_list'%}" class="action create">Отмена</a> 
+        </form> 
+    </div> 
+</section> 
+{%else%}
+{%include './alert.html'%}
+{%endif%}
+{%endblock%}

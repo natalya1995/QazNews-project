@@ -472,3 +472,23 @@ width: 50%;
     font-weight: 700;
 
 }
+.auth-form input, .auth-form label, .crud-form input, .crud-form label,.crud-form textarea, .crud-form select
+{
+display: block;
+width: 75%;
+margin-bottom: 10px;
+}
+.auth-form label, .crud-form label{
+    color: var(--primary);
+    font-weight:700;
+}
+.auth-form input, .crud-form input, .crud-form textarea, .crud-form select{
+    padding: 12px;
+    border: 1px solid var(--secondsry);
+    background-color: var(--secondsry);
+    border-radius: 10px;
+}
+.auth-button, .auth-form{
+    width: 80%;
+    margin-top: 20px;
+}

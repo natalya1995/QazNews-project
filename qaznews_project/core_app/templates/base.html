@@ -21,11 +21,28 @@
                 <li class="header-nav__item">
                     <a href="{% url 'search_page' %}" class="header-nav__link">Найти</a>
                 </li>
+                {%if not user.is_authenticated%}
                 <li class="header-nav__item">
-                    <a href="#" class="header-nav__link">
+            
+                    <a href="{%url 'admin_login_page'%}" class="header-nav__link">
                         <img src="{%static './images/user.svg'%}" alt="User">
                     </a>
+                
+                    
+                 
                 </li>
+                {%else%}
+                <li class="header-nav__item">
+                    <a href="{%url 'admin_dashboard_page'%}" class="header-nav__link">
+                Админ панель
+                     </a>
+                </li>
+                <li class="header-nav__item">
+                    <a href="{%url 'admin_logout'%}" class="header-nav__link">
+                        {{user.username}}:Выход
+                     </a>
+                </li>
+                {%endif%}
             </ul>
         </div>
     </header>
